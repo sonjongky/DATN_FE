@@ -1,0 +1,91 @@
+{
+    "language": "English",
+    "logout": {
+        "text": "Log out",
+        "confirm_message": "Are you sure ?"
+    },
+    "Yes": "Yes",
+    "No": "No",
+    "Mode": {
+        "product": "Product",
+        "order_list": "Order List"
+    },
+    "login_page": {
+        "login": "Login",
+        "user_name": "User Name",
+        "password": "Password",
+        "login_with_your_account": "Sign in with your account",
+        "error": "Invalid username or account"
+    },
+
+    "confirm_order": {
+        "product":"Product",
+        "bread_crumbs": {
+            "order": "THE ORDER",
+            "complete": "COMPLETE"
+        },
+
+        "message_error": {
+            "not_support": " not support order with your customer code was chosen.",
+            "dont_have_price": "not have the price in pick-up point with the customer code was chosen.",
+            "apologize": "Please eliminate product(s) or change the customer code. De heus sincerely thank."
+        },
+
+        "product": "The Product",
+        "product_code": "The product code",
+        "quantity": "Quantity",
+        "date_request": "Date request",
+        "infor_order": "Delivery Information",
+        "total_cost": "Total money (Temporary)",
+        "unit_VND": "đ",
+        "cost_infor": "This is the total amount of goods temporarily calculated based on the agreed item code unit price, excluding discounts (if any) and shipping costs for bulk goods.",
+
+        "customer_code": "Customer code:",
+        "factory_name": "Pick-up point:",
+        "address_order": "Delivery address",
+        "expect_data": "Expected date to receive on ",
+        "note": "Note",
+        "edit": "Edit",
+        "order": "Order",
+
+        "weight": "Weight",
+        "ton": "Ton",
+
+        "full_name": "Full name",
+        "phone_number": "Phone number",
+
+        "message": {
+            "fail": "Order fail",
+            "success": "Order successful",
+            "confirm": "Are you sure to order ?"
+        },
+        "yes": "Yes",
+        "no": "No"
+    },
+
+    "Order": {
+        "order": "ORDER",
+        "customer_code": "Customer Code",
+        "recieving_location": "Recieving Location",
+        "choose_location": "Choose Location",
+        "no_product_in_cart":"There are no products in Cart",
+        "add_product":"Add Product"
+    },
+    "delivery_information": {
+        "delivery_info": "Delivery information",
+        "full_name": "Full name",
+        "phone_number": "Phone number",
+        "delivery_address": "Delivery address",
+        "change": "Change",
+        "note": "Note",
+        "finish": "Finish"
+    },
+    "order_item": {
+        "product_code": "Product code",
+        "requesting_date": "Requesting date",
+        "quantity": "Quantity",
+        "weight_ton": "{{weight}} (ton)",
+        "product": "Product",
+        "weight": "Weight"
+    }
+}

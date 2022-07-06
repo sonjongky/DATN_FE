@@ -1,0 +1,171 @@
+{
+    "language": "Tiếng Việt",
+    "logout": {
+        "text": "Đăng xuất",
+        "confirm_message": "Bạn muốn đăng xuất chứ ?"
+    },
+    "Yes": "Có",
+    "No": "Không",
+    "Mode": {
+        "product": "Sản phẩm",
+        "order_list": "Danh sách Đơn Hàng"
+    },
+    "login_page": {
+        "login": "Đăng Nhập",
+        "user_name": "Tên người dùng",
+        "password": "Mật khẩu",
+        "login_with_your_account": " Đăng nhập vào tài khoản của bạn",
+        "error": "Tên đăng nhập hoặc tài khoản không đúng"
+    },
+
+    "confirm_order": {
+        "product": "Sản Phẩm",
+        "bread_crumbs": {
+            "order": "ĐƠN HÀNG",
+            "complete": "HOÀN TẤT"
+        },
+
+        "message_error": {
+            "not_support": " không hỗ trợ đặt hàng cho Mã khách hàng đã chọn.",
+            "dont_have_price": "hiện chưa có giá tại Địa điểm lấy hàng theo Mã khách hàng hiện tại.",
+            "apologize": "Xin quý khách hàng loại bỏ sản phẩm khỏi đơn hàng hoặc thay đổi Mã khách hàng để có thể đặt hàng. De Heus xin chân thành cảm ơn."
+        },
+        "product_code": "Mã sản phẩm",
+        "quantity": "Số lượng",
+        "date_request": "Ngày yêu cầu",
+        "infor_order": "Thông tin giao hàng",
+        "total_cost": "Tổng tiền hàng tạm tính",
+        "unit_VND": "đ",
+        "cost_infor": "Đây là tổng tiền hàng tạm tính dựa trên đơn giá mã hàng đã thỏa thuận, chưa bao gồm các khoản chiết khấu (nếu có) và chi phí vận chuyển đối với hàng xá",
+
+        "customer_code": "Mã khách hàng:",
+        "factory_name": "Địa điểm lấy hàng:",
+        "address_order": "Địa chỉ giao hàng",
+        "expect_data": "Dự kiến nhận hàng vào ngày ",
+        "note": "Ghi chú",
+        "edit": "Chỉnh sửa",
+        "make_order": "Đặt hàng",
+
+        "weight": "Trọng lượng",
+        "ton": "Tấn",
+
+        "full_name": "Họ và tên",
+        "phone_number": "Số điện thoại",
+
+        "message": {
+            "fail": "Bạn đã đặt hàng không thành công",
+            "success": "Bạn đã đặt hàng thành công",
+            "confirm": "Bạn có chắc muốn đặt hàng không ?"
+        },
+        "yes": "Có",
+        "no": "Không",
+
+        "message_error": {
+            "rdd_error": "có ngày yêu cầu không hợp lệ. Xin quý khách vui lòng chọn ngày hợp lệ để có thể đặt hàng.",
+            "quantity_error":
+            {
+                "text":"Có số lượng không hợp lệ. Xin quý khách vui lòng nhập số lượng sản phẩm lớn hơn 0 để có thể đặt hàng.",
+                "weight":"Có trọng lượng không hợp lệ. Xin quý khách vui lòng nhập số lượng sản phẩm lớn hơn 0 để có thể đặt hàng.",
+                "package":"Có số bao đặt không hợp lệ. Xin quý khách vui lòng nhập số lượng sản phẩm lớn hơn 0 để có thể đặt hàng."
+            } ,
+            "unsupported_error": "không hỗ trợ đặt hàng cho mã khách hàng đã chọn. Xin quý khách vui lòng loại bỏ sản phẩm khỏi đơn hàng hoặc thay đổi mã khách hàng để có thể đặt hàng.",
+            "no_price_error": "hiện chưa có giá tại địa điểm lấy hàng theo mã khách hàng hiện tại. Xin quý khách loại bỏ sản phẩm khỏi đơn hàng hoặc thay đổi mã khách hàng để có thể đặt hàng",
+            "delivery_info_error": "Thông tin giao hàng không hợp lệ. Xin quý khách vui lòng nhập địa chỉ hợp lệ để có thể đặt hàng.",
+            "invalid_phone_number": "Số điện thoại không hợp lệ. Vui lòng nhập số điện thoại hợp lệ để đặt hàng",
+            "not_support": " không hỗ trợ đặt hàng cho Mã khách hàng đã chọn.",
+            "dont_have_price": "hiện chưa có giá tại Địa điểm lấy hàng theo Mã khách hàng hiện tại.",
+            "empty_cart_order": "Đơn hàng đang trống, vui lòng thêm sản phẩm vào đơn hàng để đặt hàng.",
+            "unselected_factory": "Vui lòng chọn địa điểm nhận hàng để đặt hàng.",
+            "duplicated_requested_date": "Ngày yêu cầu bị trùng lặp. Xin quý khách vui lòng nhập lại ngày yêu cầu",
+            "thanks": "De Heus xin chân thành cảm ơn!",
+            "apologize": "Xin quý khách hàng loại bỏ sản phẩm khỏi đơn hàng hoặc thay đổi mã khách hàng để có thể đặt hàng. De Heus xin chân thành cảm ơn.",
+            "cart_order_error": "Giá trị chưa đúng, vui lòng kiểm tra lại"
+        },
+        "order": {
+            "order": "ĐƠN HÀNG",
+            "customer_code": "Mã khách hàng",
+            "recieving_location": "Địa điểm nhận hàng",
+            "choose_location": "Chọn địa điểm",
+            "no_product_in_cart": "Không có sản phẩm nào trong đơn hàng",
+            "add_product": "Thêm vào sản phẩm"
+        },
+        "Delivery_Info": {
+            "delivery_info": "Thông tin giao hàng",
+            "full_name": "Họ và tên",
+            "phone_number": "Số điện thoại",
+            "delivery_address": "Địa chỉ giao hàng",
+            "change": "Thay đổi",
+            "note": "Ghi chú",
+            "finish": "Hoàn tất"
+        },
+        "Order_Item": {
+            "product_code": "Mã sản phẩm",
+            "requesting_date": "Ngày yêu cầu",
+            "quantity": "Số lượng",
+            "weight_ton": "{{weight}} (tấn)",
+            "product": "Sản phẩm",
+            "weight": "Trọng lượng"
+        }
+    },
+    "product": {
+        "view_options": "Xem các lựa chọn",
+        "view": "xem",
+        "add_to_cart_order": "Thêm vào đơn hàng",
+        "package_type": "Loại Bao",
+        "pellet_size": "Kích thước viên",
+        "brand": "Thương hiệu",
+        "category": "Vật nuôi",
+        "order_to_customer_code": "Đặt cho mã khách hàng",
+        "find_product_by_name_or_product_code": "Tìm theo tên hoặc mã sản phẩm",
+        "result": "kết quả",
+        "detail": {
+            "product": "Sản Phẩm",
+            "choose_pellet_size": "Chọn kích thước viên thức ăn",
+            "choose_package_type": "Chọn loại bao",
+            "product_description": "Mô tả sản phẩm",
+            "requested_date": "Ngày yêu cầu",
+            "package_amount": "Số bao đặt",
+            "weight": "Trọng lượng đặt",
+            "pop_up": {
+                "product_codes": "Các loại sản phẩm",
+                "buy": "Chọn mua",
+                "close": "Tắt"
+            },
+            "message": {
+                "success": "Thêm vào đơn hàng thành công",
+                "empty_cart_order": "Danh sách trống ",
+                "quantity_error": "Số lượng không hợp lệ",
+                "duplicated_requested_date": "Ngày yêu cầu trùng lặp"
+            },
+            "unit": {
+                "weight": {
+                    "ton": "Tấn"
+                }
+            }
+        }
+    },
+
+    "order_info": {
+        "order": "ĐƠN HÀNG",
+        "customer_code": "Mã khách hàng",
+        "recieving_location": "Địa điểm nhận hàng",
+        "choose_location": "Chọn địa điểm"
+    },
+    "delivery_information": {
+        "delivery_info": "Thông tin giao hàng",
+        "full_name": "Họ và tên",
+        "phone_number": "Số điện thoại",
+        "delivery_address": "Địa chỉ giao hàng",
+        "change": "Thay đổi",
+        "note": "Ghi chú",
+        "finish": "Hoàn tất"
+    },
+    "order_item": {
+        "product_code": "Mã sản phẩm",
+        "requesting_date": "Ngày yêu cầu",
+        "quantity": "Số lượng",
+        "weight_ton": "{{weight}} (tấn)",
+        "product": "Sản phẩm",
+        "weight": "Trọng lượng"
+    }
+}
