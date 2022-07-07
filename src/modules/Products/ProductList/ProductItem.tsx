@@ -24,12 +24,16 @@ const ProductItem: React.FunctionComponent<Props> = (props: Props) => {
     const { t } = useTranslation();
     const { store } = useProductStore();
     const { store: orderStore } = useOrderStore();
+    const role = localStorage.getItem('Role');
 
     const { productItem: product } = props;
     const navigate = useNavigate();
 
     const showProduct = (product: Product) => {
-        navigate(`${product.Id}`);
+        navigate(`${product._id}`);
+    };
+    const editProduct = (product: Product) => {
+        navigate(`edit/${product._id}`);
     };
 
     const generateOrderItem = (cartOrder: OrderItemLine[], productCode: ProductCode) => {
@@ -87,17 +91,34 @@ const ProductItem: React.FunctionComponent<Props> = (props: Props) => {
             </StyledButton>
 
             <Box display="flex" flexDirection="row" height="12%" width="100%" columnGap="2%">
-                <StyledGenericButton
-                    color="primary"
-                    width="100%"
-                    textTransform={TextTransform.Uppercase}
-                    content={t('product.view')}
-                    backgroundColor={theme.palette.secondary.main}
-                    hoverColor={theme.palette.common.white}
-                    onClick={() => {
-                        showProduct(product);
-                    }}
-                />
+                {role === 'user' && (
+                    <StyledGenericButton
+                        color="primary"
+                        width="100%"
+                        textTransform={TextTransform.Uppercase}
+                        content={'Xem'}
+                        backgroundColor={theme.palette.secondary.main}
+                        hoverColor={theme.palette.common.white}
+                        onClick={() => {
+                            console.log('chay vao ham nay');
+                            showProduct(product);
+                        }}
+                    />
+                )}
+                {role != 'user' && (
+                    <StyledGenericButton
+                        color="primary"
+                        width="100%"
+                        textTransform={TextTransform.Uppercase}
+                        content={'Sửa thông tin'}
+                        backgroundColor={theme.palette.secondary.main}
+                        hoverColor={theme.palette.common.white}
+                        onClick={() => {
+                            console.log('khong phai user');
+                            editProduct(product);
+                        }}
+                    />
+                )}
             </Box>
         </Box>
     );

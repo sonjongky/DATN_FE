@@ -12,6 +12,7 @@ const { palette } = theme;
 
 const Navbar: React.FunctionComponent = observer(() => {
     const { t } = useTranslation();
+    const role = localStorage.getItem('Role');
     return (
         <Box
             width="100%"
@@ -49,7 +50,11 @@ const Navbar: React.FunctionComponent = observer(() => {
                         <StyledLink to="/products">
                             <Mode>{t('Mode.product')}</Mode>
                         </StyledLink>
-                        <Mode>{t('Mode.order_list')}</Mode>
+                        {role == 'admin' && (
+                            <StyledLink to="/addProducts">
+                                <Mode>Thêm sản phẩm</Mode>
+                            </StyledLink>
+                        )}
                     </Box>
                 </Box>
             </Box>

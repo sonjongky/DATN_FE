@@ -12,7 +12,7 @@ import InActivePelletSizeImage from '../../../assets/PelletSize_InActive.png';
 import { useProductStore } from '../store';
 import Image from '../../../components/Image';
 import { theme } from '../../../styles/theme';
-import { OrderErrorType, OrderItemLine, ProductCode } from '../../../types';
+import { OrderErrorType, OrderItemLine, Product, ProductCode } from '../../../types';
 import { getRequestedDateDelivery } from '../../../infra/requestedDateDelivery';
 import { removeDuplicatedItem } from '../../../infra/removeDuplicatedValue';
 import { useOrderStore } from '../../Order/store';
@@ -24,12 +24,13 @@ import OrderItem from './OrderItem';
 
 type Props = {
     isMarketingProduct: boolean;
-    setError: (type: OrderErrorType) => void;
-    isError: (noError: boolean) => void;
+    product?: Product;
+    setError?: (type: OrderErrorType) => void;
+    isError?: (noError: boolean) => void;
 };
 
 const ProductDetailContent: React.FunctionComponent<Props> = (props: Props) => {
-    const { isMarketingProduct, setError, isError } = props;
+    const { isMarketingProduct, setError, isError, product } = props;
     const { t } = useTranslation();
     const { store: productStore } = useProductStore();
     const { store: orderStore } = useOrderStore();
@@ -107,36 +108,6 @@ const ProductDetailContent: React.FunctionComponent<Props> = (props: Props) => {
         return isError;
     };
 
-    const addToCart = () => {
-        const requestedDeliveryDatesOrder = orderItemLines.map((item) => item.requestedDeliveryDate);
-        const isRequestDateError = isDuplicatedDate(requestedDeliveryDatesOrder);
-        const isQuantityError = orderItemLines.filter((item) => item.quantity === 0).length > 0;
-        const isEmptyCartError = orderItemLines.length === 0;
-        if (isQuantityError) {
-            setNoError(false);
-            setError(OrderErrorType.QuantityError);
-            return;
-        }
-        if (isEmptyCartError) {
-            setNoError(false);
-            setError(OrderErrorType.EmptyCartOrder);
-            return;
-        }
-        if (isRequestDateError) {
-            setNoError(false);
-            setError(OrderErrorType.DuplicatedRequestedDate);
-            return;
-        }
-        setNoError(true);
-        orderStore.setCartOrder(orderItemLines);
-        setOrderItemLines([]);
-        showSuccessToaster(t('product.detail.message.success'));
-    };
-
-    React.useEffect(() => {
-        isError(noError);
-    }, [noError]);
-
     React.useEffect(() => {
         const uniquePelletSizes = removeDuplicatedItem(
             productStore.currentListProductCode.map((item) => item.Millimeter),
@@ -189,20 +160,15 @@ const ProductDetailContent: React.FunctionComponent<Props> = (props: Props) => {
         <>
             <Box display="flex" flexDirection="row" columnGap="10%" width="70%" maxWidth="70%">
                 {isMarketingProduct ? (
-                    <Image
-                        src={`${process.env.REACT_APP_BACKEND_URL}${productStore.product.Images[0]}`}
-                        height="25rem"
-                        width="25rem"
-                    />
+                    <Image src={product?.Image} height="25rem" width="25rem" />
                 ) : (
                     <Image height="25rem" width="25rem" />
                 )}
                 <Box width="100%">
                     <Box display="flex" justifyContent="space-between" alignItems="center">
                         <Typography textTransform="uppercase" variant="h6">
-                            {isMarketingProduct ? productStore.product?.Name : productStore.productCode?.Name}
+                            {product?.Name}
                         </Typography>
-                        {productStore.product?.IsFavourite && <Star fontSize="large" color="info" />}
                     </Box>
                     <Box
                         width="40rem"
@@ -215,9 +181,8 @@ const ProductDetailContent: React.FunctionComponent<Props> = (props: Props) => {
                             <>
                                 {productStore.productCode.Millimeter !== 0 && (
                                     <Box paddingRight="1rem">
-                                        <Typography textTransform="uppercase">
-                                            {t('product.detail.choose_pellet_size')}
-                                        </Typography>
+                                        <Typography textTransform="uppercase">Giá tiền</Typography>
+                                        <Typography textTransform="uppercase">{product?.GiaTien}</Typography>
                                         <Box
                                             width="16rem"
                                             display="flex"
@@ -226,21 +191,11 @@ const ProductDetailContent: React.FunctionComponent<Props> = (props: Props) => {
                                             columnGap="1rem"
                                             flexWrap="wrap"
                                             padding="1rem 0"
-                                        >
-                                            <SelectButton disabled={true}>
-                                                <Image src={ActivePelletSizeImage} height="initial" width="initial" />
-                                                <PelletTypo color="common.white">
-                                                    {productStore.productCode.Millimeter}
-                                                </PelletTypo>
-                                            </SelectButton>
-                                        </Box>
+                                        ></Box>
                                     </Box>
                                 )}
 
                                 <Box>
-                                    <Typography textTransform="uppercase">
-                                        {t('product.detail.choose_package_type')}
-                                    </Typography>
                                     <Box
                                         width="16rem"
                                         display="flex"
@@ -249,62 +204,51 @@ const ProductDetailContent: React.FunctionComponent<Props> = (props: Props) => {
                                         rowGap="1rem"
                                         flexWrap="wrap"
                                         padding="1rem 0"
-                                    >
-                                        <SelectButton disabled={true}>
-                                            <Image src={ActivePackageImage} height="initial" width="initial" />
-                                            <PackageTypo color="common.white">
-                                                {productStore.productCode.PackagingType}
-                                            </PackageTypo>
-                                        </SelectButton>
-                                    </Box>
+                                    ></Box>
                                 </Box>
                             </>
                         ) : (
                             <>
-                                {!isOnePelletProduct && (
-                                    <Box>
-                                        <Typography textTransform="uppercase">
-                                            {t('product.detail.choose_pellet_size')}
-                                        </Typography>
-                                        <Box
-                                            width="16rem"
-                                            display="flex"
-                                            flexDirection="row"
-                                            justifyContent="flex-start"
-                                            flexWrap="wrap"
-                                            padding="1rem 0"
-                                        >
-                                            {pelletSizes.map((item, index) => (
-                                                <SelectButton
-                                                    key={index}
-                                                    onClick={() => {
-                                                        handleClickPelletSizeItem(item);
-                                                    }}
-                                                >
-                                                    <Image
-                                                        src={
-                                                            item === pelletSize
-                                                                ? ActivePelletSizeImage
-                                                                : InActivePelletSizeImage
-                                                        }
-                                                        height="initial"
-                                                        width="initial"
-                                                    />
-                                                    <PelletTypo
-                                                        color={`${item === pelletSize ? 'common.white' : 'grey.300'}`}
-                                                    >
-                                                        {item}
-                                                    </PelletTypo>
-                                                </SelectButton>
-                                            ))}
-                                        </Box>
-                                    </Box>
-                                )}
-
                                 <Box>
                                     <Typography textTransform="uppercase">
-                                        {t('product.detail.choose_package_type')}
+                                        {t('product.detail.choose_pellet_size')}
                                     </Typography>
+                                    <Typography textTransform="uppercase">{product?.GiaTien}</Typography>
+                                    <Box
+                                        width="16rem"
+                                        display="flex"
+                                        flexDirection="row"
+                                        justifyContent="flex-start"
+                                        flexWrap="wrap"
+                                        padding="1rem 0"
+                                    >
+                                        {pelletSizes.map((item, index) => (
+                                            <SelectButton
+                                                key={index}
+                                                onClick={() => {
+                                                    handleClickPelletSizeItem(item);
+                                                }}
+                                            >
+                                                <Image
+                                                    src={
+                                                        item === pelletSize
+                                                            ? ActivePelletSizeImage
+                                                            : InActivePelletSizeImage
+                                                    }
+                                                    height="initial"
+                                                    width="initial"
+                                                />
+                                                <PelletTypo
+                                                    color={`${item === pelletSize ? 'common.white' : 'grey.300'}`}
+                                                >
+                                                    {item}
+                                                </PelletTypo>
+                                            </SelectButton>
+                                        ))}
+                                    </Box>
+                                </Box>
+
+                                <Box>
                                     <Box
                                         width="16rem"
                                         display="flex"
@@ -388,20 +332,6 @@ const ProductDetailContent: React.FunctionComponent<Props> = (props: Props) => {
                             ))}
                         </Box>
                     )}
-                    <StyledButton
-                        variant="contained"
-                        startIcon={<Image src={AddToCartImage} height="initial" width="initial" />}
-                        onClick={addToCart}
-                    >
-                        Xóa sản phẩm
-                    </StyledButton>
-                    <StyledButton
-                        variant="contained"
-                        startIcon={<Image src={AddToCartImage} height="initial" width="initial" />}
-                        onClick={addToCart}
-                    >
-                        Sửa thông tin sản phầm
-                    </StyledButton>
                 </Box>
             </Box>
             {productCodes.length > 1 && (

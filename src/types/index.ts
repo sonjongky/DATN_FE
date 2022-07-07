@@ -1,11 +1,16 @@
 export type Product = {
-    Id: string;
+    _id: string;
     Type: number;
     Name: string;
     Image: string;
     BrandId: string;
     CategoryId: string;
     Description: string;
+    TrongLuongBao: string;
+    NoiSanXuat: string;
+    KichThuocHat: string;
+    SoLuong: string;
+    GiaTien: string;
 };
 
 export type CustomerCode = {

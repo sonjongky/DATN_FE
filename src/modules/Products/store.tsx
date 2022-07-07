@@ -95,45 +95,45 @@ class ProductStore {
         ];
     }
 
-    // @asyncAction
-    // public *getAvailableProducts() {
-    //     const response: Product[] = yield $get(`/products`);
-    //     this.allProducts = [...response.sort((a, b) => a.Name.localeCompare(b.Name))];
-    //     this.filterProduct();
-    // }
-
-    @action
-    public getAvailableProducts() {
-        this.allProducts = [
-            {
-                Id: '1',
-                Type: 0,
-                Name: 'Cam Heo Cao San',
-                Image: 'https://www.bezkoder.com/wp-content/uploads/2019/11/node-upload-images-mongodb-collection-files.png',
-                BrandId: '1',
-                CategoryId: '1',
-                Description: 'thit heo nhiem benh',
-            },
-            {
-                Id: '2',
-                Type: 0,
-                Name: 'Cam Heo Cao San',
-                Image: 'https://www.bezkoder.com/wp-content/uploads/2019/11/node-upload-images-mongodb-collection-files.png',
-                BrandId: '1',
-                CategoryId: '1',
-                Description: 'thit cho',
-            },
-            {
-                Id: '3',
-                Type: 0,
-                Name: 'Cam Heo Cao San',
-                Image: 'https://www.bezkoder.com/wp-content/uploads/2019/11/node-upload-images-mongodb-collection-files.png',
-                BrandId: '2',
-                CategoryId: '1',
-                Description: 'thitbo',
-            },
-        ];
+    @asyncAction
+    public *getAvailableProducts() {
+        const response: Product[] = yield $get(`/products`);
+        this.allProducts = [...response.sort((a, b) => a.Name.localeCompare(b.Name))];
+        this.filterProduct();
     }
+
+    // @action
+    // public getAvailableProducts() {
+    //     this.allProducts = [
+    //         {
+    //             Id: '1',
+    //             Type: 0,
+    //             Name: 'Cam Heo Cao San',
+    //             Image: 'https://www.bezkoder.com/wp-content/uploads/2019/11/node-upload-images-mongodb-collection-files.png',
+    //             BrandId: '1',
+    //             CategoryId: '1',
+    //             Description: 'thit heo nhiem benh',
+    //         },
+    //         {
+    //             Id: '2',
+    //             Type: 0,
+    //             Name: 'Cam Heo Cao San',
+    //             Image: 'https://www.bezkoder.com/wp-content/uploads/2019/11/node-upload-images-mongodb-collection-files.png',
+    //             BrandId: '1',
+    //             CategoryId: '1',
+    //             Description: 'thit cho',
+    //         },
+    //         {
+    //             Id: '3',
+    //             Type: 0,
+    //             Name: 'Cam Heo Cao San',
+    //             Image: 'https://www.bezkoder.com/wp-content/uploads/2019/11/node-upload-images-mongodb-collection-files.png',
+    //             BrandId: '2',
+    //             CategoryId: '1',
+    //             Description: 'thitbo',
+    //         },
+    //     ];
+    // }
 
     @asyncAction
     public *getProductById(productId: string) {

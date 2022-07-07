@@ -26,6 +26,7 @@ const BrowserRouter = () => {
                             }
                         />
                         <Route path="/playground" element={<Playground />} />
+                        <Route path="/addProducts" element={<Playground />} />
                         <Route path="/*" element={<Navigate to="/products" replace />} />
                     </Routes>
                 </Router>

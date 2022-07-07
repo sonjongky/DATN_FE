@@ -85,7 +85,7 @@ const ProductList: React.FunctionComponent = observer(() => {
                         flexWrap="wrap"
                     >
                         {productsPerPage.map((item) => (
-                            <ProductItem productItem={item} key={item.Id} />
+                            <ProductItem productItem={item} key={item._id} />
                         ))}
                     </Box>
                     <Box
